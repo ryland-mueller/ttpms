@@ -89,6 +89,36 @@ static void scan_filter_no_match(struct bt_scan_device_info *device_info,
 BT_SCAN_CB_INIT(scan_cb, scan_filter_match, scan_filter_no_match,
 		scan_connecting_error, scan_connecting);
 
+static void mtu_exchange_cb(struct bt_conn *conn, uint8_t err,
+			    struct bt_gatt_exchange_params *params)
+{
+	printk("MTU exchange %u %s (%u)\n", bt_conn_index(conn),
+	       err == 0U ? "successful" : "failed", bt_gatt_get_mtu(conn));
+}
+
+static struct bt_gatt_exchange_params mtu_exchange_params[CONFIG_BT_MAX_CONN];
+
+static int mtu_exchange(struct bt_conn *conn)
+{
+	uint8_t conn_index;
+	int err;
+
+	conn_index = bt_conn_index(conn);
+
+	printk("MTU (%u): %u\n", conn_index, bt_gatt_get_mtu(conn));
+
+	mtu_exchange_params[conn_index].func = mtu_exchange_cb;
+
+	err = bt_gatt_exchange_mtu(conn, &mtu_exchange_params[conn_index]);
+	if (err) {
+		printk("MTU exchange failed (err %d)", err);
+	} else {
+		printk("Exchange pending...");
+	}
+
+	return err;
+}
+
 static void connected(struct bt_conn *conn, uint8_t conn_err)
 {
 	int err;
@@ -114,6 +144,8 @@ static void connected(struct bt_conn *conn, uint8_t conn_err)
 	}
 
 	printk("Connected: %s\n", addr);
+
+	mtu_exchange(conn);
 
 }
 
