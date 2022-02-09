@@ -1,0 +1,44 @@
+// To get started, press Ctrl+Space to bring up the completion menu and view the available nodes.
+// For more help, browse the DeviceTree documentation at https://docs.zephyrproject.org/latest/guides/dts/index.html
+
+/*  ALSO ADDED THE BELOW TO nrf52840dongle_nrf52840.dts
+    arduino_i2c: &i2c0 {
+	compatible = "nordic,nrf-twi";
+	status = "okay";
+	sda-pin = <26>;
+	scl-pin = <27>;
+};
+*/
+
+/ {
+	chosen {
+		zephyr,console = &cdc_acm_uart0;
+	};
+};
+
+&zephyr_udc0 {
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+		label = "CDC_ACM_0";
+	};
+};
+
+&arduino_i2c {
+    status = "okay";
+    sda-pin = <29>;
+    scl-pin = <31>;
+    ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        label = "SSD1306";
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        segment-remap;
+        com-invdir;
+        prechargep = <0x22>;
+    };
+};
