@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Ryland/ncs/v1.8.0/nrfxlib/softdevice_controller
+# Install script for directory: C:/Users/Ryland/ncs/v1.9.1/nrfxlib/softdevice_controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Ryland/ncs/v1.8.0/toolchain/opt/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/Ryland/ncs/v1.9.1/toolchain/opt/bin/arm-none-eabi-objdump.exe")
 endif()
 

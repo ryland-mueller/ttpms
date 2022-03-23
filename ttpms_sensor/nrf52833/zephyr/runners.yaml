@@ -13,13 +13,13 @@ debug-runner: jlink
 
 # Common runner configuration values.
 config:
-  board_dir: C:/Users/Ryland/ncs/v1.8.0/zephyr/boards/arm/nrf52833dk_nrf52833
+  board_dir: C:/Users/Ryland/ncs/v1.9.1/zephyr/boards/arm/nrf52833dk_nrf52833
   # Build outputs:
   elf_file: zephyr.elf
   hex_file: zephyr.hex
   bin_file: zephyr.bin
   # Host tools:
-  gdb: C:/Users/Ryland/ncs/v1.8.0/toolchain/opt/bin/arm-none-eabi-gdb.exe
+  gdb: C:/Users/Ryland/ncs/v1.9.1/toolchain/opt/bin/arm-none-eabi-gdb.exe
 
 # Runner specific arguments
 args:

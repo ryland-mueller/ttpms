@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Ryland/ncs/v1.8.0/zephyr/subsys/bluetooth
+# Install script for directory: C:/Users/Ryland/ncs/v1.9.1/zephyr/subsys/bluetooth
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,14 +34,21 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Ryland/ncs/v1.8.0/toolchain/opt/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/Ryland/ncs/v1.9.1/toolchain/opt/bin/arm-none-eabi-objdump.exe")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("C:/Users/Ryland/OneDrive/NCS_Projects/ttpms_sensor/nrf52833/zephyr/subsys/bluetooth/common/cmake_install.cmake")
-  include("C:/Users/Ryland/OneDrive/NCS_Projects/ttpms_sensor/nrf52833/zephyr/subsys/bluetooth/host/cmake_install.cmake")
-  include("C:/Users/Ryland/OneDrive/NCS_Projects/ttpms_sensor/nrf52833/zephyr/subsys/bluetooth/services/cmake_install.cmake")
+  # Include the install script for the subdirectory.
+  include("C:/Users/Ryland/ncs/Projects/ttpms_sensor/nrf52833/zephyr/subsys/bluetooth/common/cmake_install.cmake")
+endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Ryland/ncs/Projects/ttpms_sensor/nrf52833/zephyr/subsys/bluetooth/host/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/Ryland/ncs/Projects/ttpms_sensor/nrf52833/zephyr/subsys/bluetooth/services/cmake_install.cmake")
 endif()
 
